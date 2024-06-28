@@ -32,4 +32,17 @@ public class ClienteController: ControllerBase
         }
         return Ok(cliente);
     }
+    
+    // POST: api/cliente
+    [HttpPost]
+    public ActionResult<Cliente> Post([FromBody] Cliente cliente)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        cliente.Id = Clientes.Count + 1;
+        Clientes.Add(cliente);
+        return CreatedAtAction(nameof(Get), new { id = cliente.Id }, cliente);
+    }
 }

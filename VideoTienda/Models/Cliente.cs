@@ -14,5 +14,5 @@ public class Cliente
     [EmailAddress(ErrorMessage = "El email no es válido")]
     public string Email { get; set; }
     
-    public ICollection<Video> Videos { get; set; }
+    public ICollection<Video>? Videos { get; set; }
 }
