@@ -7,7 +7,11 @@ namespace VideoTienda.Controllers;
 [Route("api/[controller]")]
 public class VideoController: ControllerBase
 {
-    private static readonly List<Video> Videos = new List<Video>();
+    private static readonly List<Video> Videos = [
+        new Video() { Id = 1, Titulo = "Test Video", Genero = "Test Genre", FechaLanzamiento = new DateTime(2024, 1, 1), Precio = 100.0m },
+        new Video() { Id = 2, Titulo = "John's video", Genero = "Documentary", FechaLanzamiento = DateTime.Now, Precio = 200.0m },
+        new Video() { Id = 3, Titulo = "Video of Ghost the wolf", Genero = "Sci-Fi", FechaLanzamiento = new DateTime(2025, 1, 7), Precio = 500.0m }
+    ];
     
     // GET: api/video
     [HttpGet]
